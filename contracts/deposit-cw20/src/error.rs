@@ -18,4 +18,12 @@ pub enum ContractError {
     #[error("User does not have coins from this cw20 to withdraw")]
     NoCw20ToWithdraw {},
 
+    #[error("Not enough cw20 tokens sent")]
+    NotEnoughTokensSent {},
+
+    #[error("User does not have enough coins to withdraw")]
+    NotEnoughTokensToWithdraw {},
+
+    #[error("Need to wait {blocks:?} blocks to withdraw")]
+    LockdownIsNotOver { blocks: String },
 }

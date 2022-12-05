@@ -1,22 +1,23 @@
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use cosmwasm_std::{Uint128, Addr, Coin};
+use cosmwasm_std::{Addr, Coin, Uint128};
 use cw_storage_plus::Map;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct Cw20Deposits {
     pub count: i32,
     pub owner: String,
-    pub contract:String,
-    pub amount:Uint128
+    pub contract: String,
+    pub amount: Uint128,
+    pub lockdown: u64,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct Deposits {
     pub count: i32,
     pub owner: Addr,
-    pub coins: Coin
+    pub coins: Coin,
 }
 
 //key is address, denom
